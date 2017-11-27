@@ -7,10 +7,13 @@
 <body>
 	<h1>GENERATORE DI MUSICA</h1>
 	<h3>Impostazioni:</h3>
-	scala:</br> <input type="radio" name="scala" value="maggiore"> maggiore<input type="radio" name="scala" value="minore">minore<input type="radio" name="scala" value="blues">blues<br>
+	scala:</br> <input type="radio" name="scala" value="maggiore" checked="checked"> maggiore
+	<input type="radio" name="scala" value="minore"> minore
+	<input type="radio" name="scala" value="blues">blues<br>
 	prima nota (tonalit&agrave):
 	<select id="ton">
 		<option value="C" > Do </option>
+		<option value="D" > Re </option>
 	</select>
 	<br>
 	<button onClick="avvio()">genera</button>

@@ -27,6 +27,17 @@ var cont=[];
 							cont=["DO" , "MIb" , "FA" , "SOLb" , "SOL" , "SIb" , "DO" ];
 					}
 					break;
+					
+				case "D":
+					{
+						if(scala=="maggiore")
+							cont=["RE", "MI", "FA#", "SOL", "LA", "SI", "DO#", "RE"];
+						else if(scala=="minore")
+							cont=["RE", "MI", "FA", "SOL", "LA", "SIb", "DO", "RE"];
+						else if(scala=="blues")
+							cont=["RE", "FA#", "SOL", "LAb", "LA", "DO", "RE"];
+					}
+					break;
 			}
 			//output
 			var progressione="";
