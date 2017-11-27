@@ -1,4 +1,3 @@
-<script>
 var cont=[];
 		function avvio()
 		{
@@ -55,4 +54,3 @@ var cont=[];
 					return progressione;
 			}
 		}
-</script>
