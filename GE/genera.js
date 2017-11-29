@@ -46,8 +46,8 @@ var cont=[];
 			output.innerHTML=cont[0]+" "+progressione+cont[0];
 		}
 		
-		//oggetto nota
-		function nota(note,progressione, prec)
+		
+		function nota(note,progressione, prec) //oggetto
 		{
 			this.note=note;
 			this.progressione=progressione;
@@ -64,4 +64,14 @@ var cont=[];
 				}
 					return progressione;
 			}
+		}
+		
+		
+		function Probabilita(percentuale)
+		{
+			var random=Math.floor((Math.random()*10)+1);
+			if (random<=5)
+				return true;
+			else
+				return false;
 		}
