@@ -3,6 +3,10 @@ var cont=[];
 		{
 			//input delle impostazioni
 			output=document.getElementById("generato");
+			//input tempo
+			var tempo=document.getElementById("tempo").value;
+			//input n°battute
+			var battute = document.getElementById('battute').value;
 			//input tipo di scala
 			var scala_value = document.getElementsByName('scala');
 			var scala;
@@ -27,7 +31,7 @@ var cont=[];
 							cont=["DO" , "MIb" , "FA" , "SOLb" , "SOL" , "SIb" , "DO" ];
 					}
 					break;
-					
+
 				case "D":
 					{
 						if(scala=="maggiore")
@@ -41,32 +45,58 @@ var cont=[];
 			}
 			//output
 			var progressione="";
-			var lead= new nota(cont, progressione, ton);
+			var lead= new nota(cont, progressione, ton, battute, tempo);
 			progressione=lead.prossima();
+			tempi=lead.generaTempo();
 			output.innerHTML=cont[0]+" "+progressione+cont[0];
 		}
-		
-		
-		function nota(note,progressione, prec) //oggetto
+
+
+		function nota(note,progressione, prec, battute, max) //oggetto
 		{
+			this.max=max;	//max è il tempo, chiamato così per non confondere nella funzione generaTempo()
+			this.battute=battute
 			this.note=note;
 			this.progressione=progressione;
 			this.prec=prec;
 			//metodo che calcola la progressione di accordi
 			this.prossima =function()
 			{
-				
+
 				for(var i=0; i<10; i++)
 				{
-				//1 a tutti, 2 a 4 o 6, 3 a 6, 4 a 
+				//1 a tutti, 2 a 4 o 6, 3 a 6, 4 a
 				var random=Math.floor(Math.random()*7);
 				progressione+= cont[random]+" ";
 				}
 					return progressione;
 			}
+			this.generaTempo()
+			{
+				tempi=[];					//vettore con tutti ti tempi delle note
+				valori=[0.5,1,2];		//valori possibili(in ordine croma, semiminima, minima)
+				for(var k=0; k<battute;k++)	//for delle battute
+				{
+					sommaf=0; //somma finale
+					somma=0;	//somma temporanea
+					do       //generazione singolabattuta
+					{
+						somma=sommaf;
+						random=Math.floor(Math.random() * 3);	//generazione dell'indice di valori[] in modo random
+						somma+=valori[random];
+						if(somma<=max)	//se la somma temporanea non supera il numero di battiti massimi, aggiorna somma finale
+						{
+							sommaf+=valori[random];
+							tempi.push(valori[random]);
+						}
+
+					}while(sommaf!=max);
+				}
+				return tempi;
+			}
 		}
-		
-		
+
+
 		function Probabilita(percentuale)
 		{
 			var random=Math.floor((Math.random()*10)+1);
