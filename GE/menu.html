@@ -7,15 +7,21 @@
 <body>
 	<h1>GENERATORE DI MUSICA</h1>
 	<h3>Impostazioni:</h3>
-	n°battute:
+	tempo:
+	<select id="tempo">
+		<option value="4"> 4/4 </option>
+		<option value="3"> 3/4 </option>
+		<option value="2"> 2/4 </option>
+	</select><br>
+	numero di battute:
 	<select id="battute">
 		<option value="1"> 1 </option>
 		<option value="2"> 2 </option>
 		<option value="3"> 3 </option>
 		<option value="4"> 4 </option>
 		<option value="5"> 5 </option>
-	</select>
-	scala:</br> <input type="radio" name="scala" value="maggiore" checked="checked"> maggiore
+	</select><br>
+	scala:<br> <input type="radio" name="scala" value="maggiore" checked="checked"> maggiore
 	<input type="radio" name="scala" value="minore"> minore
 	<input type="radio" name="scala" value="blues">blues<br>
 	prima nota (tonalita):
@@ -26,6 +32,6 @@
 	<br>
 	<button onClick="avvio()">genera</button>
 	<br>
-	<p id="generato"></p>
+		<div id="generato"></div>
 </body>
 </html>

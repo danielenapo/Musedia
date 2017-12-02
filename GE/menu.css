@@ -2,4 +2,9 @@ body{
 		background-image:url("../img/sfondo.jpg");
 		color:white;}
 h1{
-		color:white}
+		width:50%;
+		margin:auto;
+		color:white;}
+td{
+		border:2px solid black;
+		padding: 8px;}
