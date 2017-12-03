@@ -1,3 +1,5 @@
+//Musedia   Copyright (C)   2017   Daniele Napolitano
+
 var cont=[];
 		function avvio()
 		{
